@@ -1,0 +1,29 @@
+*{
+    margin-left: 0.5%;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    /* height: 100%; */
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffdfaf;
+}
+
+.conteiner{
+    width: 20%;
+    height: 200px;
+    border: 1px solid black;
+    background-color: #dec195;
+
+}
+
+.w200__h200{
+    display: block;
+    width: 200px;
+    height: 200px;
+}

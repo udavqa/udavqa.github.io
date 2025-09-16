@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: #393939;
+        }
+
+        .block {
+            height: 500px;
+            border: 1px double blue;
+            background-color: #666666;
+            margin-left: 30%;
+            margin-right: 30%;
+            flex: 1;
+        }
+   
+        .fx_cont {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top {
+            display: flex;
+            height: 20%;
+            text-transform: capitalize;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .row_item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .row_item div{
+            flex: 1;
+        }
+        
+        .row_item :last-child{
+            text-align: left;
+            letter-spacing: 1px;
+            border: 1px solid blue;
+            padding: 10px 10px;
+        }
+        
+        .row_btns {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 100px;
+        }
+        .row_btns div{
+            cursor: pointer;
+            padding: 10px 40px;
+            background-color: #AAAAAA;
+            text-transform: uppercase;
+        }
+        
+        .row_btns div:hover{
+            background-color: #5e5e5e;
+            border: 1px solid blue;
+        }
+
+    </style>
+
+    <div class="fx_cont">
+
+        <div class="block">
+            <div class="top">employee data</div>
+            <div class="row_item">
+                <div>employee ID</div>
+                <div>123456</div>
+            </div>
+            <div class="row_item">
+                <div >employee name</div>
+                <div>John Wick</div>               
+            </div>
+            <div class="row_item">
+                <div >employee phone </div>
+                <div >1234567890</div>
+            </div>
+            <div class="row_btns">
+                <div >insert</div>
+                <div >refresh</div>
+
+            </div>
+            <a href="../index.html"></a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1. <a href="http://kubsu.ru">kubsu.ru</a></li>
+        <li>2. <a href="https://www.kubsu.ru/index.php">главная</a></li>
+        <li>3. <a href="http://kubsu.ru" title="kubsu" style="display: inline-block;"><img class="w200__h200" src="assets/img/image.jpg" alt="error"></a></li>
+        <li>4. <a href="assets/pages/page1.html">внутренняя страница</a></li>
+        <li>5. <a href="/">Сокращенная ссылка на главную</a></li>
+        <li>6. <a href="#this_img">Картинка с ID</a></li>
+        <li>7. <a href="https://example.com/page?user=ivan&age=18&height=172">Ссылка с 3 параметрами</a></li>
+        <li>8. <a href="https://example.com/item?id=15"> ссылку с параметром id в URL</a></li>
+        <li>9. <a href="page2.html">Относительная на страницу в текущем каталоге</a> </li>
+        <li>10. <a href="about/about.html">относительную на страницу в каталоге about</a> </li>
+        <li>11. <a href="about/../index.html"> относительную на страницу в каталоге уровнем выше текущего</a></li>
+        <li>12. <a href="assets/img/../../page2.html"> относительную на страницу в каталоге двумя уровнями выше</a></li>
+        <li>13. Это контекстная<a href="https://www.kubsu.ru">ссылка</a> в тексте абзаца </li>
+        <li>14. <a href="https://www.kubsu.ru/index.php#region-sidebar-second">Ссылка на фрагмент страницы стороннего сайта</a></li>
+        <li>15. Ссылка из прямоугольных и круглых областей картинки (изображение ниже)</li>
+        <li>16. <a href="">Ссылка с пустым href</a></li>
+        <li>17. <a >Ссылка без href</a></li>
+        <li>18. <a href="https://www.kubsu.ru" rel="nofollow">ссылку, по которой запрещен переход поисковикам</a></li>
+        <li>19. <a href="https://youtube.com/" rel="noindex">запрещенную для индексации поисковиками</a></li>
+        <li>20. <div style="display: inline;"><ol style="display: flex;flex-direction:column">
+            <a href="https://google.com" title="Поисковая система google">google</a>
+            <a href="https://www.kubsu.ru" title="КубСУ">kubsu</a>
+            <a href="assets/img/1/image.jpg" title="Картинка цветок">img</a>
+          </ol></div>
+        </li>
+        <li>21. <a href="ftp://david:123456789@ftp.site.ru/file.txt">ссылку на файл на сервере FTP с авторизацией</a></li>
+
+    </ul>
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px" usemap="#map4">
+    <map name="map4">
+      <area shape="rect" coords="0,0,100,100" href="https://google.com" alt="google" title="google">
+      <area shape="circle" coords="150,150,50" href="https://www.kubsu.ru" alt="Kubsu" title="kubsu">
+    </map>
+    <!-- <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img id="this_img" src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
+    <img src="assets/img/image.jpg" alt="" width="300px" height="300px"> -->
+
+    <h1>Форма</h1>
+    <form action="/" method="post">
+      <label>
+      ФИО:
+        <br>
+        <input name="field-name-1" placeholder="ФИО " required minlength="6">
+      </label>
+      <br>
+      <label>
+      Номер телефона:
+        <br>
+        <input name="field-tel" type="tel" placeholder="Введите номер телефона">
+      </label>
+      <br>
+      <label>
+      Email
+        <br>
+        <input name="field-email" type="email" placeholder="Введите вашу почту">
+      </label>
+      <br>
+      <label>
+      Дата рождения:
+        <br>
+        <input name="field-date" value="2007-01-05" type="date">
+      </label>
+      <br>
+      <label for="height">Рост :</label>
+      <input type="number" name="h" id="height"  required min="100" max="200">
+      <br>
+      Пол:
+      <br>
+      <label>
+        <input type="radio" checked="checked"
+        name="radio-group-1" value="Значение1">
+      Мужчина
+      </label>
+      <label>
+        <input type="radio" name="radio-group-1" value="Значение2">
+      Женщина
+      </label>
+      <br>
+      <label>
+      Любимый язык программирования:
+        <br>
+        <select name="field-name-4[]" multiple="multiple">
+          <option value="Значение1">Pascal</option>
+          <option value="Значение2" selected="selected">C</option>
+          <option value="Значение3" selected="selected">C++</option>
+          <option value="Значение4" selected="selected">JavaScript</option>
+          <option value="Значение5" selected="selected">PHP</option>
+          <option value="Значение6" selected="selected">Python</option>
+          <option value="Значение7" selected="selected">Java</option>
+          <option value="Значение8" selected="selected">Haskel</option>
+          <option value="Значение9" selected="selected">Clojure</option>
+          <option value="Значение10" selected="selected">Prolog</option>
+          <option value="Значение11" selected="selected">Scala</option>
+        </select>
+      </label>
+      <br>
+      <label>
+      Биография:
+        <br>
+        <textarea name="field-name-2" placeholder="Введите текст" required></textarea>
+      </label>
+      <br>
+      С контрактом ознакомлен:
+      <br>
+      <label>
+        <input type="checkbox" name="check-1" >
+      Ознакомлен
+      </label>
+      <br>
+      <input type="submit" value="Сохранить">
+      <br>
+    </form>
+
+</body>
+
+</html>
