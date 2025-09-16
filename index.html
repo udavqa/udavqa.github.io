@@ -40,17 +40,10 @@
     </ul>
     <img src="assets/img/image.jpg" alt="" width="300px" height="300px" usemap="#map4">
     <map name="map4">
-      <area shape="rect" coords="0,0,100,100" href="https://google.com" alt="google" title="google">
-      <area shape="circle" coords="150,150,50" href="https://www.kubsu.ru" alt="Kubsu" title="kubsu">
+      <area shape="rect" coords="0,0,100,100" href="https://google.com" alt="google" title="Прямоугольная область">
+      <area shape="circle" coords="150,150,50" href="https://www.kubsu.ru" alt="Kubsu" title="Круглая область">
     </map>
-    <!-- <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
     <img id="this_img" src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px">
-    <img src="assets/img/image.jpg" alt="" width="300px" height="300px"> -->
 
     <h1>Форма</h1>
     <form action="/" method="post">
@@ -63,7 +56,7 @@
       <label>
       Номер телефона:
         <br>
-        <input name="field-tel" type="tel" placeholder="Введите номер телефона">
+        <input name="field-tel" type="tel" placeholder="Введите номер телефона" required minlength="11">
       </label>
       <br>
       <label>
@@ -77,9 +70,6 @@
         <br>
         <input name="field-date" value="2007-01-05" type="date">
       </label>
-      <br>
-      <label for="height">Рост :</label>
-      <input type="number" name="h" id="height"  required min="100" max="200">
       <br>
       Пол:
       <br>
@@ -96,7 +86,7 @@
       <label>
       Любимый язык программирования:
         <br>
-        <select name="field-name-4[]" multiple="multiple">
+        <select name="field-name-4[]" multiple="multiple" >
           <option value="Значение1">Pascal</option>
           <option value="Значение2" selected="selected">C</option>
           <option value="Значение3" selected="selected">C++</option>
@@ -120,11 +110,11 @@
       С контрактом ознакомлен:
       <br>
       <label>
-        <input type="checkbox" name="check-1" >
+        <input type="checkbox" name="check-1" required>
       Ознакомлен
       </label>
       <br>
-      <input type="submit" value="Сохранить">
+      <input type="submit" value="Сохранить" >
       <br>
     </form>
 
