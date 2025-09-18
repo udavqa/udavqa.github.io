@@ -9,6 +9,27 @@
 </head>
 
 <body>
+
+  <header id="main-header">
+    <div class="container">
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Информация</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="brand">
+            <img style="float:left; margin: 10px; width: 100px; height: 100px; border-radius: 1000px" src="https://toplogos.ru/images/logo-batman.gif" alt="Логотип" class="logo" width="120px" height="120px">
+            <h1 class="site-title">Название сайта</h1>
+        </div>
+
+    </div>
+</header>
+  <div class="menu">
     <ul>
         <li>1. <a href="http://kubsu.ru">kubsu.ru</a></li>
         <li>2. <a href="https://www.kubsu.ru/index.php">главная</a></li>
@@ -38,13 +59,56 @@
         <li>21. <a href="ftp://david:123456789@ftp.site.ru/file.txt">ссылку на файл на сервере FTP с авторизацией</a></li>
 
     </ul>
+
     <img src="assets/img/image.jpg" alt="" width="300px" height="300px" usemap="#map4">
     <map name="map4">
       <area shape="rect" coords="0,0,100,100" href="https://google.com" alt="google" title="Прямоугольная область">
       <area shape="circle" coords="150,150,50" href="https://www.kubsu.ru" alt="Kubsu" title="Круглая область">
     </map>
     <img id="this_img" src="assets/img/image.jpg" alt="" width="300px" height="300px">
+  </div>
 
+  <div class="table">
+    <table>
+      <tbody>
+        <tr>
+          <th>Колонка 1</th>
+          <th>Колонка 2</th>
+          <th>Колонка 3</th>
+          <th>Колонка 4</th>
+        </tr>
+        <tr>
+          <td colspan="4">Ячейка 11  Ячейка 12 Ячейка 13 Ячейка 14</td>
+        </tr>
+        <tr>
+          <td>Ячейка 21</td>
+          <td>Ячейка 22</td>
+          <td>Ячейка 23</td>
+          <td>Ячейка 24</td>
+        </tr>
+        <tr>
+          <td colspan="4">Ячейка 31  Ячейка 32 Ячейка 33 Ячейка 34</td>
+        </tr>
+        <tr>
+          <td>Ячейка 41</td>
+          <td>Ячейка 42</td>
+          <td>Ячейка 43</td>
+          <td>Ячейка 44</td>
+        </tr>
+        <tr>
+          <td colspan="4">Ячейка 51 Ячейка 52  Ячейка 53  Ячейка 54</td>
+        </tr>
+        <tr>
+          <td>Ячейка 61</td>
+          <td>Ячейка 62</td>
+          <td>Ячейка 63</td>
+          <td>Ячейка 64</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form">
     <h1>Форма</h1>
     <form action="/" method="post">
       <label>
@@ -117,7 +181,10 @@
       <input type="submit" value="Сохранить" >
       <br>
     </form>
-
+  </div>
+    <footer id="main-footer">
+      <p>&copy; Закиров Давид</p>
+    </footer>
 
     
 

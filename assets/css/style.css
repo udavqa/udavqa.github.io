@@ -12,11 +12,14 @@ body{
     display: flex;
     flex-direction: column;
     background-color: #9ba08e;
+    align-items: center;
+    justify-content: center;
 }
 
 .conteiner{
-    width: 20%;
-    height: 200px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
     border: 1px solid black;
     background-color: #dec195;
 
@@ -26,4 +29,98 @@ body{
     display: block;
     width: 200px;
     height: 200px;
+}
+
+#main-header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.main-nav {
+    background-color: #eee;
+    border-radius: 100px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    justify-content: center;
+    
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border:1px solid #333;
+    border-radius: 3px;
+}
+
+.menu{
+    width: 960px;
+    background-color: #868673;
+    margin-top: 20px;
+    
+}
+
+.table{
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 960px;
+    background-color: #868673;
+    margin-top: 20px;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+    
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+tbody tr:nth-child(odd) {
+    background-color: #b9d065;
+}
+  
+tbody tr:nth-child(even){
+    background-color: #9ba08e;
+}
+
+.form{
+    width: 960px;
+    background-color: #868673;
+    margin-top: 20px;
 }
