@@ -1,5 +1,4 @@
 *{
-    margin-left: 0.5%;
     padding: 1px;
     box-sizing: border-box;
 }
@@ -75,7 +74,6 @@ body{
     width: 960px;
     background-color: #868673;
     margin-top: 20px;
-    
 }
 
 .table{
