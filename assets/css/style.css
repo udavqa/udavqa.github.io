@@ -1,12 +1,15 @@
 *{
     padding: 1px;
     box-sizing: border-box;
+    margin: 0;
 }
 
 html,body{
     width: 100%;
-    /* height: 100%; */
+    min-height: 100vh;
 }
+
+/*
 body{
     display: flex;
     flex-direction: column;
@@ -122,4 +125,370 @@ tbody tr:nth-child(even){
     background-color: #868673;
     margin-top: 20px;
 }
+*/
 
+/* Mobile First стили */
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #9ba08e;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    max-width: 100%;
+    width: 100%;
+    padding: 0 15px;
+    border: 1px solid black;
+    background-color: #dec195;
+}
+
+.w200__h200{
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+/* Шапка - Mobile First */
+#main-header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    order: 1;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.brand img {
+    float: none;
+    margin: 10px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 1000px;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Навигация - Mobile First */
+.main-nav {
+    background-color: #eee;
+    border-radius: 10px;
+    margin-top: 10px;
+    order: 2;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding: 10px 15px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: #4a90e2;
+    color: white;
+}
+
+/* Основной контент - Mobile First */
+.main {
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+    padding: 15px;
+    order: 4; /* На мобильных - после таблицы */
+}
+
+.main ul {
+    list-style: none;
+}
+
+.main li {
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.main a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.main a:hover {
+    color: #4a90e2;
+    text-decoration: underline;
+}
+
+.main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Таблица - Mobile First */
+.table {
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+    padding: 15px;
+    order: 3; /* На мобильных - перед списком ссылок */
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #333;
+}
+
+th {
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #b9d065;
+}
+
+tbody tr:nth-child(even){
+    background-color: #9ba08e;
+}
+
+/* Форма - Mobile First */
+.form {
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+    padding: 15px;
+    order: 5;
+}
+
+.form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.2);
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.radio-group label, .checkbox-group label {
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Футер */
+#main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    order: 6;
+}
+
+/* Media Query для планшетов (768px и выше) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    
+    .brand {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .brand img {
+        float: left;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+        margin-top: 0;
+        margin-left: 20px;
+    }
+    
+    .main-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 0;
+    }
+    
+    .main-nav a {
+        padding: 8px 15px;
+    }
+    
+    .main, .table, .form {
+        max-width: 720px;
+    }
+    
+    .main {
+        order: 3; /* На планшетах/десктопах - исходный порядок */
+    }
+    
+    .table {
+        order: 4; /* На планшетах/десктопах - исходный порядок */
+    }
+    
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .radio-group, .checkbox-group {
+        flex-direction: row;
+        gap: 15px;
+    }
+}
+
+/* Media Query для десктопов (1024px и выше) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .main, .table, .form {
+        max-width: 960px;
+    }
+    
+    #main-header .container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .brand {
+        margin-bottom: 0;
+    }
+    
+    .main-nav {
+        margin-top: 0;
+        flex: 0 0 auto;
+    }
+    
+    .main-nav ul {
+        padding: 0;
+    }
+    
+    table {
+        min-width: auto;
+    }
+    
+    th, td {
+        padding: 12px;
+    }
+}
+
+/* Дополнительные улучшения для очень маленьких экранов */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .brand img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .main-nav a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .main, .table, .form {
+        padding: 10px;
+    }
+    
+    input, select, textarea {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
