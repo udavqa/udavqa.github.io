@@ -122,3 +122,85 @@ tbody tr:nth-child(even){
     background-color: #868673;
     margin-top: 20px;
 }
+
+/* Базовые стили для смартфонов (портретная ориентация) */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Контейнер всей страницы */
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Шапка, навигация, контент, футер — 100% ширины */
+  header, nav, main, footer {
+    width: 100%;
+  }
+  
+  /* Главное меню — вертикальный список */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Контейнер для таблицы и списка */
+  .content-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Список ссылок идёт раньше таблицы в HTML, но на мобильных
+     таблица отображается выше (order меняется) */
+  .content-flex .table-wrapper {
+    order: 1;
+  }
+  
+  .content-flex .links-wrapper {
+    order: 2;
+  }
+  
+  /* ======== Media Queries ======== */
+  /* Планшеты и десктопы */
+  @media (min-width: 768px) {
+    nav ul {
+      flex-direction: row;
+      justify-content: center;
+    }
+  
+    .content-flex {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .content-flex .table-wrapper {
+      order: 1;
+    }
+  
+    .content-flex .links-wrapper {
+      order: 2;
+    }
+  
+    nav ul li {
+      border-bottom: none;
+      border-right: 1px solid #ccc;
+    }
+  
+    nav ul li:last-child {
+      border-right: none;
+    }
+  }
