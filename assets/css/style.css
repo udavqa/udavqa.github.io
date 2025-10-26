@@ -309,14 +309,15 @@ tbody tr:nth-child(even){
 
 html,body{
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
+    margin: 0;
 }
 body{
     display: flex;
     flex-direction: column;
     background-color: #9ba08e;
     align-items: center;
-    justify-content: center;
+    min-height: 100vh;
 }
 
 .conteiner{
@@ -325,7 +326,6 @@ body{
     padding: 0 15px;
     border: 1px solid black;
     background-color: #dec195;
-
 }
 
 .w200__h200{
@@ -340,6 +340,9 @@ body{
     text-align: center;
     padding: 10px;
     width: 100%;
+    position: sticky; /* Ключевое изменение - sticky позиционирование */
+    top: 0; /* Прилипает к верху */
+    z-index: 1000; /* Чтобы header был поверх других элементов */
 }
 
 #main-footer {
@@ -348,7 +351,6 @@ body{
     text-align: center;
     padding: 10px;
     width: 100%;
-    /*margin-top: 20px;*/
     margin-top: auto;
 }
 
