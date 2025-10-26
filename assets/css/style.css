@@ -123,84 +123,116 @@ tbody tr:nth-child(even){
     margin-top: 20px;
 }
 
-/* Базовые стили для смартфонов (портретная ориентация) */
+/* ——— Базовые стили — Mobile First ——— */
 body {
-    display: flex;
-    flex-direction: column;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
   }
   
-  /* Контейнер всей страницы */
   .container {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
   
-  /* Шапка, навигация, контент, футер — 100% ширины */
+  /* Шапка, навигация, основной блок, футер — 100% width */
   header, nav, main, footer {
     width: 100%;
+    box-sizing: border-box;
   }
   
-  /* Главное меню — вертикальный список */
+  /* Навигация: список ссылок как вертикальный список */
   nav ul {
     display: flex;
     flex-direction: column;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     text-align: center;
   }
   
   nav ul li {
-    padding: 10px;
+    padding: 12px 0;
     border-bottom: 1px solid #ccc;
   }
   
-  /* Контейнер для таблицы и списка */
-  .content-flex {
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Контент: контейнер, в котором находятся таблица и список ссылок */
+  main {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
   }
   
-  /* Список ссылок идёт раньше таблицы в HTML, но на мобильных
-     таблица отображается выше (order меняется) */
-  .content-flex .table-wrapper {
-    order: 1;
+  /* Предположим какая структура: сначала список ссылок (ul), затем таблица */
+  .links-wrapper {
+    order: 2;    /* на мобильных: список будет вторым */
+    width: 100%;
   }
   
-  .content-flex .links-wrapper {
-    order: 2;
+  .table-wrapper {
+    order: 1;    /* на мобильных: таблица будет первым */
+    width: 100%;
+    overflow-x: auto; /* если таблица слишком широкая */
   }
   
-  /* ======== Media Queries ======== */
-  /* Планшеты и десктопы */
+  /* Таблица: ширина 100% */
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-wrapper table th,
+  .table-wrapper table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Футер: делаем подвал аккуратно */
+  footer {
+    padding: 16px;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  
+  /* ——— Media Query для планшетов и десктопов — минимум 768px ——— */
   @media (min-width: 768px) {
     nav ul {
       flex-direction: row;
       justify-content: center;
     }
   
-    .content-flex {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .content-flex .table-wrapper {
-      order: 1;
-    }
-  
-    .content-flex .links-wrapper {
-      order: 2;
-    }
-  
     nav ul li {
       border-bottom: none;
       border-right: 1px solid #ccc;
+      padding: 12px 16px;
     }
   
     nav ul li:last-child {
       border-right: none;
+    }
+  
+    main {
+      flex-direction: row;
+      justify-space: between;
+      align-items: flex-start;
+    }
+  
+    .links-wrapper {
+      order: 2;     /* на больших экранах: список может оставаться вторым */
+      width: 30%;   /* например: 30% ширины */
+      padding: 0 16px;
+    }
+  
+    .table-wrapper {
+      order: 1;
+      width: 65%;   /* например: 65% ширины */
+      padding: 0 16px;
     }
   }
