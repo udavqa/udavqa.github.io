@@ -396,11 +396,10 @@ body{
     margin-top: 20px;
     order: -1; /* Таблица выше списка на мобильных */
 }
-
+/*
 .main {
-    order: 1; /* Список ссылок после таблицы на мобильных */
+    order: 1; 
 }
-
 tbody {
     display: table-row-group;
     vertical-align: middle;
@@ -435,14 +434,14 @@ tbody tr:nth-child(even){
     margin-top: 20px;
 }
 
-/* Flex container для изменения порядка элементов */
+/* Flex container для изменения порядка элементов 
 body > .main,
 body > .table {
     display: flex;
     flex-direction: column;
 }
 
-/* Media Query для планшетов (768px и выше) */
+/* Media Query для планшетов (768px и выше) 
 @media (min-width: 768px) {
     .conteiner {
         width: 100%;
@@ -467,15 +466,15 @@ body > .table {
     }
     
     .table {
-        order: 0; /* Возвращаем нормальный порядок */
+        order: 0; /* Возвращаем норм 
     }
     
     .main {
-        order: 0; /* Возвращаем нормальный порядок */
+        order: 0; /* Во нормал порядок 
     }
 }
 
-/* Media Query для десктопов (1024px и выше) */
+/* Media Query для деск (1024px и выше) 
 @media (min-width: 1024px) {
     .conteiner {
         max-width: 960px;
