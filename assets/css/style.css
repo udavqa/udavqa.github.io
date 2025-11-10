@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
 }
-
+/*
 html,body{
     width: 100%;
     min-height: 100vh;
@@ -125,10 +125,8 @@ tbody tr:nth-child(even){
     background-color: #868673;
     margin-top: 20px;
 }
+/*
 
-/* Mobile First стили */
-
-/*                                                                                        1231231231231123123123123
 body{
     display: flex;
     flex-direction: column;
@@ -298,5 +296,5 @@ tbody tr:nth-child(even){
         order: 3;
     }
 }
-*/
+
 
