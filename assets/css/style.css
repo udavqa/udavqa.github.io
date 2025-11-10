@@ -126,7 +126,7 @@ tbody tr:nth-child(even){
     margin-top: 20px;
 }
 */
-
+/*
 body{
     display: flex;
     flex-direction: column;
@@ -296,5 +296,199 @@ tbody tr:nth-child(even){
         order: 3;
     }
 }
+*/
+*{
+    padding: 1px;
+    box-sizing: border-box;
+}
 
+html,body{
+    width: 100%;
+    /* height: 100%; */
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #9ba08e;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+    border: 1px solid black;
+    background-color: #dec195;
+
+}
+
+.w200__h200{
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+#main-header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    /*margin-top: 20px;*/
+    margin-top: auto;
+}
+
+/* Mobile First стили */
+.main-nav {
+    background-color: #eee;
+    border-radius: 100px;
+    width: 100%;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 3px;
+    padding: 5px 10px;
+    display: block;
+    width: 200px;
+    text-align: center;
+}
+
+.menu{
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+}
+
+.table{
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+    order: -1; /* Таблица выше списка на мобильных */
+}
+
+.main {
+    order: 1; /* Список ссылок после таблицы на мобильных */
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+    
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+tbody tr:nth-child(odd) {
+    background-color: #b9d065;
+}
+  
+tbody tr:nth-child(even){
+    background-color: #9ba08e;
+}
+
+.form{
+    width: 100%;
+    background-color: #868673;
+    margin-top: 20px;
+}
+
+/* Flex container для изменения порядка элементов */
+body > .main,
+body > .table,
+body > .form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Media Query для планшетов (768px и выше) */
+@media (min-width: 768px) {
+    .conteiner {
+        width: 100%;
+    }
+    
+    .main-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .main-nav a {
+        width: auto;
+        display: inline-block;
+    }
+    
+    .menu,
+    .table,
+    .form {
+        width: 100%;
+        max-width: 960px;
+    }
+    
+    .table {
+        order: 0; /* Возвращаем нормальный порядок */
+    }
+    
+    .main {
+        order: 0; /* Возвращаем нормальный порядок */
+    }
+}
+
+/* Media Query для десктопов (1024px и выше) */
+@media (min-width: 1024px) {
+    .conteiner {
+        max-width: 960px;
+    }
+    
+    .menu,
+    .table,
+    .form {
+        width: 960px;
+    }
+    
+    .main-nav {
+        border-radius: 100px;
+    }
+}
 
