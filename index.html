@@ -184,30 +184,27 @@
     </form>
   </div>
   
-  <div class="calculator-container">
+  <div class="calculator">
     <h2>Калькулятор стоимости заказа</h2>
-    <form id="calculator-form">
-      <div class="form-group">
-        <label for="quantity">Количество товара:</label>
-        <input type="text" id="quantity" name="quantity" placeholder="Введите количество">
-        <div id="quantity-error" class="error-message" style="color: red; display: none;"></div>
-      </div>
+    <form id="order-form">
+      <label for="quantity">Количество товара:</label><br>
+      <input type="text" id="quantity" name="quantity" placeholder="Введите количество"><br><br>
       
-      <div class="form-group">
-        <label for="product">Выберите товар:</label>
-        <select id="product" name="product">
-          <option value="1500">Смартфон - 1500 руб.</option>
-          <option value="2500">Ноутбук - 2500 руб.</option>
-          <option value="800">Наушники - 800 руб.</option>
-          <option value="1200">Планшет - 1200 руб.</option>
-        </select>
-      </div>
+      <label for="product">Выберите товар:</label><br>
+      <select id="product" name="product">
+        <option value="1500">Куртка - 1500 руб.</option>
+        <option value="800">Часы - 800 руб.</option>
+        <option value="300">Футболка - 300 руб.</option>
+        <option value="2000">Штаны - 2000 руб.</option>
+      </select><br><br>
       
       <button type="button" id="calculate-btn">Рассчитать стоимость</button>
     </form>
     
-    <div id="result" class="result" style="margin-top: 20px; font-weight: bold; font-size: 18px;"></div>
+    <div id="result" style="margin-top: 15px; font-weight: bold;"></div>
+    <div id="error" style="color: red; margin-top: 10px;"></div>
   </div>
+
     <footer id="main-footer">
       <p>&copy; Закиров Давид</p>
     </footer>

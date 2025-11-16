@@ -1,35 +1,54 @@
-calculateBtn.addEventListener('click', function(event) {
-    event.preventDefault();
+"use strict";
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed");
     
-    // Очищаем предыдущие результаты
-    resultDiv.textContent = '';
-    errorDiv.style.display = 'none';
-    errorDiv.textContent = '';
+    const quantityInput = document.getElementById('quantity');
+    const productSelect = document.getElementById('product');
+    const calculateButton = document.getElementById('calculate-btn');
+    const resultDiv = document.getElementById('result');
+    const errorDiv = document.getElementById('error');
     
-    // Получаем значения из формы
-    const quantityStr = quantityInput.value.trim();
-    const productPrice = parseInt(productSelect.value);
+    // Регулярное выражение для проверки ввода (только цифры)
+    const numbersRegex = /^\d+$/;
     
-    // Проверяем корректность ввода с помощью регулярного выражения
-    const regex = /^\d+$/;
-    
-    if (!regex.test(quantityStr)) {
-        errorDiv.textContent = 'Ошибка: введите корректное количество (только цифры)';
-        errorDiv.style.display = 'block';
-        return;
+    function calculateTotal() {
+        // Очищаем предыдущие сообщения
+        errorDiv.textContent = '';
+        resultDiv.textContent = '';
+        
+        const quantity = quantityInput.value.trim();
+        const selectedProduct = productSelect.options[productSelect.selectedIndex];
+        const price = parseInt(selectedProduct.value, 10);
+        
+        // Проверка корректности ввода с помощью регулярного выражения
+        if (!numbersRegex.test(quantity)) {
+            errorDiv.textContent = 'Ошибка: введите корректное количество (только цифры)';
+            return;
+        }
+        
+        const quantityNum = parseInt(quantity, 10);
+        
+        // Дополнительная проверка на положительное число
+        if (quantityNum <= 0) {
+            errorDiv.textContent = 'Ошибка: количество должно быть положительным числом';
+            return;
+        }
+        
+        // Расчет стоимости
+        const total = quantityNum * price;
+        
+        // Вывод результата
+        resultDiv.textContent = `Стоимость заказа: ${total} руб. (${quantityNum} × ${price} руб.)`;
     }
     
-    const quantity = parseInt(quantityStr);
+    // Назначаем обработчик события на кнопку
+    calculateButton.addEventListener('click', calculateTotal);
     
-    if (quantity <= 0) {
-        errorDiv.textContent = 'Ошибка: количество должно быть больше 0';
-        errorDiv.style.display = 'block';
-        return;
-    }
-    
-    // ВЫЧИСЛЯЕМ СТОИМОСТЬ - произведение цены и количества
-    const totalCost = quantity * productPrice;
-    
-    // Выводим результат на страницу
-    resultDiv.textContent = `Стоимость заказа: ${totalCost} руб.`;
+    // Дополнительно: расчет при нажатии Enter в поле ввода количества
+    quantityInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            calculateTotal();
+        }
+    });
 });
