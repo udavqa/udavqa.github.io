@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <title>ZakirovD</title>
 </head>
 
 
@@ -182,6 +182,31 @@
       <input type="submit" value="Сохранить" >
       <br>
     </form>
+  </div>
+  
+  <div class="calculator-container">
+    <h2>Калькулятор стоимости заказа</h2>
+    <form id="calculator-form">
+      <div class="form-group">
+        <label for="quantity">Количество товара:</label>
+        <input type="text" id="quantity" name="quantity" placeholder="Введите количество">
+        <div id="quantity-error" class="error-message" style="color: red; display: none;"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="product">Выберите товар:</label>
+        <select id="product" name="product">
+          <option value="1500">Смартфон - 1500 руб.</option>
+          <option value="2500">Ноутбук - 2500 руб.</option>
+          <option value="800">Наушники - 800 руб.</option>
+          <option value="1200">Планшет - 1200 руб.</option>
+        </select>
+      </div>
+      
+      <button type="button" id="calculate-btn">Рассчитать стоимость</button>
+    </form>
+    
+    <div id="result" class="result" style="margin-top: 20px; font-weight: bold; font-size: 18px;"></div>
   </div>
     <footer id="main-footer">
       <p>&copy; Закиров Давид</p>
