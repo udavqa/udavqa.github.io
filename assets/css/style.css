@@ -125,7 +125,7 @@ tbody tr:nth-child(even){
     background-color: #868673;
     margin-top: 20px;
 }
-*/
+
 /* Mobile First стили */
 
 body{
@@ -364,16 +364,4 @@ tbody tr:nth-child(even){
         width: 960px;
         order: 3;
     }
-    .calculator-container {
-        width: 960px;
-        order: 4;
-    }
-
-    #calculate-btn {
-        width: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
-
