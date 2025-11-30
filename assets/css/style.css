@@ -593,6 +593,7 @@ body{
     color: #333;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 .calculator form {
@@ -603,54 +604,73 @@ body{
 }
 
 .calculator .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
 
 .calculator label {
     font-weight: bold;
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: block;
+    font-size: 1.1em;
 }
 
-.calculator input,
+.calculator input[type="number"],
 .calculator select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-top: 5px;
     border: 1px solid #333;
     border-radius: 4px;
     background-color: white;
+    font-size: 1em;
 }
 
 .calculator .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .calculator .radio-group label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-weight: normal;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.calculator .radio-group label:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .calculator .radio-group input[type="radio"] {
     width: auto;
     margin: 0;
+    transform: scale(1.2);
 }
 
 .calculator #propertyGroup label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-weight: normal;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
 }
 
 .calculator #propertyGroup input[type="checkbox"] {
     width: auto;
     margin: 0;
+    transform: scale(1.2);
 }
 
 .hidden {
@@ -659,16 +679,26 @@ body{
 
 #result {
     background-color: #73c646;
-    padding: 15px;
-    border-radius: 4px;
-    margin-top: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
     text-align: center;
     border: 1px solid #333;
 }
 
 #result h3 {
-    margin: 0;
+    margin: 0 0 10px 0;
     color: #333;
+    font-size: 1.3em;
+}
+
+#calculationDetails {
+    font-size: 0.9em;
+    color: #2d5016;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
 }
 
 /* Адаптивность для калькулятора */
@@ -679,10 +709,17 @@ body{
 
     .calculator .radio-group {
         flex-direction: row;
-        gap: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
-    .calculator input,
+    .calculator .radio-group label {
+        flex: 1;
+        min-width: 200px;
+        justify-content: center;
+    }
+
+    .calculator input[type="number"],
     .calculator select {
         width: 300px;
     }
