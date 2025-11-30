@@ -203,6 +203,40 @@
     
     <div id="result"></div>
     <div id="error"></div>
+    <section class="calculator">
+      <h2>Калькулятор стоимости услуги</h2>
+      <form id="calculator-form">
+          <div class="form-group">
+              <label for="quantity">Количество:</label>
+              <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+          </div>
+  
+          <div class="form-group">
+              <label>Тип услуги:</label>
+              <div class="radio-group">
+                  <label><input type="radio" name="serviceType" value="basic" checked> Базовая</label>
+                  <label><input type="radio" name="serviceType" value="advanced"> Продвинутая</label>
+                  <label><input type="radio" name="serviceType" value="premium"> Премиум</label>
+              </div>
+          </div>
+  
+          <div class="form-group hidden" id="optionsGroup">
+              <label for="options">Опция товара:</label>
+              <select id="options" name="options">
+                  <option value="standard">Стандартная</option>
+                  <option value="express">Экспресс</option>
+              </select>
+          </div>
+  
+          <div class="form-group hidden" id="propertyGroup">
+              <label><input type="checkbox" id="property" name="property"> Дополнительное свойство</label>
+          </div>
+  
+          <div id="result">
+              <h3>Общая стоимость: <span id="totalPrice">0</span> руб.</h3>
+          </div>
+      </form>
+  </section>
 </div>
 
     <footer id="main-footer">
@@ -211,6 +245,98 @@
 
     
     <script src="calculator.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Конфигурация цен
+          const prices = {
+              basic: 100,
+              advanced: 150,
+              premium: 200
+          };
+      
+          const optionPrices = {
+              standard: 0,
+              express: 50
+          };
+      
+          const propertyMultiplier = 1.2; // +20%
+      
+          // Элементы DOM
+          const quantityInput = document.getElementById('quantity');
+          const serviceTypeRadios = document.querySelectorAll('input[name="serviceType"]');
+          const optionsGroup = document.getElementById('optionsGroup');
+          const optionsSelect = document.getElementById('options');
+          const propertyGroup = document.getElementById('propertyGroup');
+          const propertyCheckbox = document.getElementById('property');
+          const totalPriceElement = document.getElementById('totalPrice');
+      
+          // Функция обновления видимости дополнительных полей
+          function updateFormVisibility() {
+              const selectedType = document.querySelector('input[name="serviceType"]:checked').value;
+              
+              // Сброс значений дополнительных полей при скрытии
+              if (selectedType !== 'advanced') {
+                  optionsSelect.value = 'standard';
+              }
+              if (selectedType !== 'premium') {
+                  propertyCheckbox.checked = false;
+              }
+      
+              // Управление видимостью
+              switch(selectedType) {
+                  case 'basic':
+                      optionsGroup.classList.add('hidden');
+                      propertyGroup.classList.add('hidden');
+                      break;
+                  case 'advanced':
+                      optionsGroup.classList.remove('hidden');
+                      propertyGroup.classList.add('hidden');
+                      break;
+                  case 'premium':
+                      optionsGroup.classList.add('hidden');
+                      propertyGroup.classList.remove('hidden');
+                      break;
+              }
+          }
+      
+          // Функция расчета общей стоимости
+          function calculateTotal() {
+              const quantity = parseInt(quantityInput.value) || 0;
+              const serviceType = document.querySelector('input[name="serviceType"]:checked').value;
+              
+              let total = prices[serviceType] * quantity;
+      
+              // Добавляем стоимость опции, если выбран продвинутый тип
+              if (serviceType === 'advanced') {
+                  const optionValue = optionsSelect.value;
+                  total += optionPrices[optionValue] * quantity;
+              }
+      
+              // Применяем множитель для премиум с дополнительным свойством
+              if (serviceType === 'premium' && propertyCheckbox.checked) {
+                  total *= propertyMultiplier;
+              }
+      
+              // Округляем и выводим
+              totalPriceElement.textContent = Math.round(total);
+          }
+      
+          // Назначение обработчиков событий
+          quantityInput.addEventListener('input', calculateTotal);
+          optionsSelect.addEventListener('change', calculateTotal);
+          propertyCheckbox.addEventListener('change', calculateTotal);
+          serviceTypeRadios.forEach(radio => {
+              radio.addEventListener('change', function() {
+                  updateFormVisibility();
+                  calculateTotal();
+              });
+          });
+      
+          // Инициализация
+          updateFormVisibility();
+          calculateTotal();
+      });
+      </script>
 </body>
 
 </html>
