@@ -184,7 +184,7 @@
     </form>
   </div>
   
-  <div class="calculator">
+  <!-- <div class="calculator">
     <h2>Калькулятор стоимости заказа</h2>
     <form id="order-form">
         <label for="quantity">Количество товара:</label>
@@ -203,44 +203,47 @@
     
     <div id="result"></div>
     <div id="error"></div>
-    <section class="calculator">
-      <h2>Калькулятор стоимости цифровых услуг</h2>
-      <form id="calculator-form">
-          <div class="form-group">
-              <label for="quantity">Количество проектов:</label>
-              <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+    
+</div> -->
+<section class="calculator">
+  <h2>Калькулятор стоимости цифровых услуг</h2>
+  <form id="calculator-form">
+      <div class="form-group">
+          <label for="quantity">Количество проектов:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+      </div>
+
+      <div class="form-group">
+          <label>Тип услуги:</label>
+          <div class="radio-group">
+              <label><input type="radio" name="serviceType" value="consulting" checked> IT-консалтинг</label>
+              <label><input type="radio" name="serviceType" value="development"> Веб-разработка</label>
+              <label><input type="radio" name="serviceType" value="marketing"> Digital-маркетинг</label>
           </div>
-  
-          <div class="form-group">
-              <label>Тип услуги:</label>
-              <div class="radio-group">
-                  <label><input type="radio" name="serviceType" value="consulting" checked> IT-консалтинг</label>
-                  <label><input type="radio" name="serviceType" value="development"> Веб-разработка</label>
-                  <label><input type="radio" name="serviceType" value="marketing"> Digital-маркетинг</label>
-              </div>
-          </div>
-  
-          <div class="form-group hidden" id="optionsGroup">
-              <label for="options">Тип проекта:</label>
-              <select id="options" name="options">
-                  <option value="landing">Лендинг</option>
-                  <option value="corporate">Корпоративный сайт</option>
-                  <option value="ecommerce">Интернет-магазин</option>
-                  <option value="webapp">Веб-приложение</option>
-              </select>
-          </div>
-  
-          <div class="form-group hidden" id="propertyGroup">
-              <label><input type="checkbox" id="property" name="property"> Экспресс-режим (+40% к стоимости)</label>
-          </div>
-  
-          <div id="result">
-              <h3>Общая стоимость: <span id="totalPrice">0</span> руб.</h3>
-              <div id="calculationDetails"></div>
-          </div>
-      </form>
-  </section>
-</div>
+      </div>
+
+      <!-- СЕЛЕКТ ДЛЯ ВЕБ-РАЗРАБОТКИ -->
+      <div class="form-group hidden" id="optionsGroup">
+          <label for="options">Тип проекта:</label>
+          <select id="options" name="options">
+              <option value="landing">Лендинг</option>
+              <option value="corporate">Корпоративный сайт</option>
+              <option value="ecommerce">Интернет-магазин</option>
+              <option value="webapp">Веб-приложение</option>
+          </select>
+      </div>
+
+      <!-- ЧЕКБОКС ДЛЯ DIGITAL-МАРКЕТИНГА -->
+      <div class="form-group hidden" id="propertyGroup">
+          <label><input type="checkbox" id="property" name="property"> Экспресс-режим (+40% к стоимости)</label>
+      </div>
+
+      <div id="result">
+          <h3>Общая стоимость: <span id="totalPrice">0</span> руб.</h3>
+          <div id="calculationDetails"></div>
+      </div>
+  </form>
+</section>
 
     <footer id="main-footer">
       <p>&copy; Закиров Давид</p>
@@ -250,22 +253,21 @@
     <script src="calculator.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-          // Конфигурация цен для оригинальных услуг
+          // Конфигурация цен
           const servicePrices = {
-              consulting: 5000,    // IT-консалтинг
-              development: 15000,  // Веб-разработка
-              marketing: 8000      // Digital-маркетинг
+              consulting: 5000,    // IT-консалтинг - БЕЗ доп. опций и свойств
+              development: 15000,  // Веб-разработка - ТОЛЬКО опции (селект)
+              marketing: 8000      // Digital-маркетинг - ТОЛЬКО свойство (чекбокс)
           };
       
-          // Дополнительные стоимости для типов проектов
           const projectTypePrices = {
-              landing: 0,          // Базовая цена для лендинга
-              corporate: 10000,    // +10 000 за корпоративный сайт
-              ecommerce: 25000,    // +25 000 за интернет-магазин
-              webapp: 40000        // +40 000 за веб-приложение
+              landing: 0,
+              corporate: 10000,
+              ecommerce: 25000,
+              webapp: 40000
           };
       
-          const expressMultiplier = 1.4; // +40% за экспресс-режим
+          const expressMultiplier = 1.4;
       
           // Элементы DOM
           const quantityInput = document.getElementById('quantity');
@@ -281,7 +283,7 @@
           function updateFormVisibility() {
               const selectedType = document.querySelector('input[name="serviceType"]:checked').value;
               
-              // Сброс значений дополнительных полей при скрытии
+              // Сброс значений при скрытии
               if (selectedType !== 'development') {
                   optionsSelect.value = 'landing';
               }
@@ -289,27 +291,27 @@
                   propertyCheckbox.checked = false;
               }
       
-              // Управление видимостью в зависимости от типа услуги
+              // Строгое управление видимостью согласно требованиям
               switch(selectedType) {
                   case 'consulting':
-                      // IT-консалтинг - нет дополнительных опций и свойств
+                      // ПЕРВЫЙ ТИП: НИ селект, НИ чекбокс
                       optionsGroup.classList.add('hidden');
                       propertyGroup.classList.add('hidden');
                       break;
                   case 'development':
-                      // Веб-разработка - только опции (селект)
+                      // ВТОРОЙ ТИП: ТОЛЬКО селект, чекбокс скрыт
                       optionsGroup.classList.remove('hidden');
                       propertyGroup.classList.add('hidden');
                       break;
                   case 'marketing':
-                      // Digital-маркетинг - только свойство (чекбокс)
+                      // ТРЕТИЙ ТИП: ТОЛЬКО чекбокс, селект скрыт
                       optionsGroup.classList.add('hidden');
                       propertyGroup.classList.remove('hidden');
                       break;
               }
           }
       
-          // Функция расчета общей стоимости с детализацией
+          // Функция расчета общей стоимости
           function calculateTotal() {
               const quantity = parseInt(quantityInput.value) || 0;
               const serviceType = document.querySelector('input[name="serviceType"]:checked').value;
@@ -320,7 +322,7 @@
       
               details.push(`Базовая стоимость: ${basePrice} руб. × ${quantity} = ${basePrice * quantity} руб.`);
       
-              // Добавляем стоимость типа проекта для веб-разработки
+              // ТОЛЬКО для веб-разработки добавляем стоимость типа проекта
               if (serviceType === 'development') {
                   const projectType = optionsSelect.value;
                   const projectPrice = projectTypePrices[projectType];
@@ -330,7 +332,7 @@
                   }
               }
       
-              // Применяем множитель для экспресс-режима в маркетинге
+              // ТОЛЬКО для digital-маркетинга применяем экспресс-режим
               if (serviceType === 'marketing' && propertyCheckbox.checked) {
                   const originalTotal = total;
                   total *= expressMultiplier;
@@ -343,7 +345,7 @@
               calculationDetails.innerHTML = details.join('<br>');
           }
       
-          // Назначение обработчиков событий
+          // Обработчики событий
           quantityInput.addEventListener('input', calculateTotal);
           optionsSelect.addEventListener('change', calculateTotal);
           propertyCheckbox.addEventListener('change', calculateTotal);
@@ -355,7 +357,7 @@
               });
           });
       
-          // Инициализация при загрузке
+          // Инициализация
           updateFormVisibility();
           calculateTotal();
       });
